@@ -1,2 +1,2 @@
-# Explorations alongs folder
+# Explorations folder
 
