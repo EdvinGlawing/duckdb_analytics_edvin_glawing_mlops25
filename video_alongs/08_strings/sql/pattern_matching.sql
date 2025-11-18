@@ -56,3 +56,18 @@ FROM
     staging.sql_glossary
 WHERE
     regexp_matches (cleaned_description, '^[a-f]');
+
+-- [^a-f] matches any character not in range a-f
+-- ^[^a-f] starting with characters not in range a-f
+SELECT
+    lower(trim(description)) as cleaned_description
+FROM
+    staging.sql_glossary
+WHERE
+    regexp_matches (cleaned_description, '^[^a-f]');
+
+SELECT
+    description,
+    regexp_replace(trim(description), ' +', ' ', 'g') AS cleaned_description
+FROM
+    staging.sql_glossary;
