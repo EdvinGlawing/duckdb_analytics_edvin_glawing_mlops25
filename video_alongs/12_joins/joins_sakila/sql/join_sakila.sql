@@ -27,3 +27,51 @@ FROM
     film_category fc
     INNER JOIN category c ON fc.category_id = c.category_id
     INNER JOIN film f ON f.film_id = fc.film_id;
+
+SELECT
+    COUNT(*)
+FROM
+    film;
+
+SELECT
+    COUNT(*)
+FROM
+    category;
+
+SELECT
+    COUNT(*)
+FROM
+    film f
+    INNER JOIN category c ON category_id;
+
+-- in which adress, city and country does the staff live in
+FROM
+    staff;
+
+FROM
+    address;
+
+FROM
+    city;
+
+FROM
+    country;
+
+-- gives catalog error, works for kokchun?
+SELECT
+    *
+FROM
+    staff s
+    LEFT JOIN address a ON s.address_id = a.address_id;
+
+SELECT
+    s.first_name,
+    s.last_name,
+    a.address,
+    c.city,
+    cty.country
+FROM
+    staff s
+    LEFT JOIN address a ON s.address_id = a.address_id
+    LEFT JOIN city c ON a.city_id = c.city_id
+    LEFT JOIN country cty ON cty.country_id = c.country_id;
